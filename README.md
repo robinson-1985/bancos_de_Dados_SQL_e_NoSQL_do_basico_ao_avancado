@@ -5,14 +5,14 @@ Este repositório contém o curso de banco de dados SQL e NoSQL do zero até os 
 Neste curso aprendemos sobre:
 
 - Instalação e configuração de diferentes softwares de bancos de dados relacionais e não relacionais;
-- Aprenda a modelar bancos de dados relacionais;
-- Projete e implemente esquemas complexos de banco de dados;
-- Aprenda a aplicar as formas normais para validar seu modelo de dado;
-- Aprenda os detalhes da sintaxe SQL;
-- Aprenda a analisar dados usando funções agregadas;
-- Execute consultas complexas usando operadores lógicos e funções;
-- Aprenda a utilizar os banco de dados relacionais: MySQL, PostgreSQL e SQLite;
-- Aprenda a utilizar os banco de dados não relacionais: MongoDB, CouchDB, Redis e Firebase;
-- Crie 14 aplicações CRUD (Create, Retrieve, Update e Delete) com Python, Java e todos os banco de dados estudados!
+- A modelar bancos de dados relacionais;
+- Projetar e implementar esquemas complexos de banco de dados;
+- A aplicar as formas normais para validar seu modelo de dado;
+- Os detalhes da sintaxe SQL;
+- A analisar dados usando funções agregadas;
+- Executar consultas complexas usando operadores lógicos e funções;
+- A utilizar os banco de dados relacionais: MySQL, PostgreSQL e SQLite;
+- A utilizar os banco de dados não relacionais: MongoDB, CouchDB, Redis e Firebase;
+- Criar 14 aplicações CRUD (Create, Retrieve, Update e Delete) com Python, Java e todos os banco de dados estudados!
 
 Geek University: https://www.udemy.com/course/curso-de-banco-de-dados-do-basico-ao-avancado

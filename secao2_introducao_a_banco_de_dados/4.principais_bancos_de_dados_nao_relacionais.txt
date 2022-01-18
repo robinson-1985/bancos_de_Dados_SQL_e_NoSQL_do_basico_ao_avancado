@@ -1,0 +1,15 @@
+                Principais Bancos de Dados Não Relacionais
+
+- HBASE
+- Redis
+- MongoDB
+- Cassandra
+- CouchDB relax
+- RavenDB
+- membase
+- Oracle Coherence
+- Apache Solr
+- riak 
+- Neo4j
+- Firebase
+- elasticsearch

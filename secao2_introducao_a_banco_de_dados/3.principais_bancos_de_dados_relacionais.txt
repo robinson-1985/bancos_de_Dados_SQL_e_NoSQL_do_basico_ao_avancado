@@ -1,0 +1,10 @@
+             Principais Bancos de Dados Relacionais
+
+- Oracle/Database
+- Microsoft SQL Server
+- PostgreSQL
+- Teradata
+- MariaDB
+- MySQL
+- Apache derby
+- SQLite

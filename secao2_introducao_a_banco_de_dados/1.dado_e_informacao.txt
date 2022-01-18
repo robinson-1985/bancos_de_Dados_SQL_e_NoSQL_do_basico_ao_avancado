@@ -1,0 +1,22 @@
+Dado - elemento bruto geralmente proveniente de uma entrada do usuário ou de outros sistemas.
+
+Informação - Elemento processado (lapidado) constituído de dados. 
+
+                        Diferenças entre dados e informações
+
+Dado 
+
+1200      100
+Oeste     Ricardo alves 
+79154     Sapatos
+
+Informação
+
+Relatório mensal de vendas - região oeste
+
+Vendedor: Ricardo Alves 
+Código do Empregado: 79154
+
+Item          Quantidade             Preço Unitário
+Sapatos       1200                      100
+

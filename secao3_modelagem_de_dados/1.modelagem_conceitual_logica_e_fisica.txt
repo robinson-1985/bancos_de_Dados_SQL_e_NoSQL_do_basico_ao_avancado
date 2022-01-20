@@ -1,0 +1,160 @@
+                Modelagem Conceitual, Lógica e Física
+
+Os modelos de banco de dados são usados para descrever, mais detalhadamente, a estrutura de
+um banco de dados. Eles servem então como parte importante documentação dos sistemas que 
+auxiliam não somente os desenvolvedores que estão trabalhando no projeto mas também servem
+como documentação que pode ser entregue ao cliente que contratou o serviço de desenvolvimento.
+
+Atenção: Um modelo de dados não informa quais dados estão armazenados em um banco de dados, 
+mas sim apenas quais e que tipos de dados contém.
+
+Estes modelos são baseados em três níveis: Conceitual, Lógico e Físico
+
+Modelo Conceitual:
+
+Este é o modelo de mais alto nível, ou seja, que está mais próximo dos usuários.
+O nível conceitual é desenvolvido com alto nível de abstração, a partir dos requisitos do
+sistema, extraídos na fase de levantamento de requisitos pelos analista de sistemas.
+Esse modelo pode ser elaborado de forma textual ou por meio de dois diagramas: Diagrama
+de Entidade e Relacionamento e/ou Diagrama de Classes*.
+
+* Diagramas UML - Unified Modeling Language (Linguagem de Modelagem Unificada)
+
+Modelo Conceitual:
+1) Clientes
+Dados necessários: nome completo, tipo de pessoa (física ou jurídica), endereço, bairro,
+cidade, estado, telefone, email, nome de contato.
+2) Pedido
+Dados necessários: código do produto, quantidade, código do cliente, código do vendedor.
+
+
+Modelo Lógico:
+
+Este modelo descreve como os dados serão armazenados no banco de dados e também seus
+relacionamentos.
+Neste modelo ainda pode ser definida a tecnologia que será utilizada para armazenagem dos
+dados: Bancos de Dados Relacionais ou Bancos de Dados Não Relacionais
+
+Modelo Físico:
+
+Também chamado de Modelo de Implementação, descreve, por meio de alguma linguagem
+(comumente SQL), como será feita a armazenagem do banco.
+Neste nível se escolhe qual Sistema Gerenciador de Banco de Dados (SGBD) será utilizado,
+levando em consideração o modelo lógico adotado.
+
+Outros conceitos essenciais:
+
+Tabela == Entidade
+
+Entidade: Objeto ou evento do mundo real sobre o qual desejamos manter registros em um
+banco de dados:
+Exemplos: Aluno, Carro, Produto, Vendedor, Venda, etc.
+
+
+Atributo: Propriedade ou característica que descreve uma entidade. São as colunas
+(campos) das tabelas que irão armazenar os dados.
+Entidade Produto: código, descrição e preço;
+Entidade Tipo de Produto: código, descrição;
+
+
+Atributo Chave: Também conhecido como chave primária, primary key ou pk, é um campo
+que deve possuir valor único (sem repetição) em todo o conjunto de dados da entidade. Este
+atributo é usado para identificar unicamente um registro da tabela.
+Entidade Produto: código, descrição e preço;
+Entidade Tipo de Produto: código, descrição;
+
+Relacionamentos: Geralmente as entidades nunca estão sozinhas; normalmente estão
+associadas com outras entidades. Reconhecer e registrar os relacionamentos entre entidades
+fornece uma descrição muito mais rica do modelo.
+Um relacionamento pode acontecer entre uma, duas ou várias entidades.
+No exemplo abaixo, temos um relacionamento entre a entidade Produto e Tipo de Produto.
+Isso indica que um produto tem um tipo.
+
+Chave Estrangeira: Também conhecido como foreign key ou fk, é um atributo presente em
+uma entidade que indica um relacionamento e representa a chave primária de uma outra
+entidade.
+No exemplo abaixo, a entidade Produto teria um atributo que seria a representação de uma
+outra entidade nela. Neste caso a outra entidade é Tipo de Produto.
+Entidade Produto: código, código do tipo de produto, descrição e preço;
+Entidade Tipo de Produto: código, descrição;
+
+Grau de Relacionamento: Indica a quantidade de entidades ligadas a um relacionamento.
+Os principais graus de relacionamento são: Unário, Binário e Ternário
+
+Relacionamento Unário: Chamado também de grau 1 - Uma entidade se relaciona com ela
+mesma.
+
+Relacionamento Binário: Chamado também de grau 2 - Uma entidade se relaciona com
+outra entidade. É o tipo mais comum de relacionamento.
+
+Relacionamento Ternário: Chamado também de grau 3 - Três entidades estão relacionadas
+por um mesmo relacionamento.
+
+Graus de Relacionamentos:
+
+Conforme estudamos, os mais comuns são o Unário, Binário e Ternário, mas não estão
+limitados a estes.
+Dependendo da complexidade do projeto podemos ter relacionamentos com grau
+quaternário, grau 5 e etc.
+
+                Cardinalidade Máxima
+
+Cardinalidade (Máxima):
+Define a quantidade máxima de ocorrências de uma entidade que poderá estar associada a
+outra entidade.
+Por exemplo:
+- Um vendedor pode vender apenas um tipo de produto? Ou dois? Ou três?
+- Um produto pode ser vendido por apenas um vendedor? Ou por todos?
+
+Cardinalidade (Máxima)
+Relacionamento Binário Um-para-Um (1:1) (one-to-one) - Indica que uma ocorrência da entidade A
+pode se relacionar exclusivamente com uma ocorrência da entidade B e vice versa.
+Exemplo: Um vendedor ocupa um único escritório e um escritório pode ser ocupado por um
+único vendedor.
+
+Relacionamento Binário Um-para-Muitos (1:n) (one-to-many) - Indica que uma ocorrência da entidade
+A pode se relacionar com várias ocorrências da entidade B, porém o inverso não é permitido.
+Exemplo: Um vendedor atende muitos clientes, porém cada cliente é atendido por apenas
+um vendedor específico.
+
+Relacionamento Binário Muitos-para-Muitos (n:m) - Indica que uma ocorrência da
+entidade A pode se relacionar com várias ocorrências da entidade B e vice versa.
+Exemplo: Um vendedor atende muitos clientes, e um cliente pode ser atendido por diversos
+vendedores.
+
+Relacionamento Binário Muitos-para-Muitos (n:m) (many-to-many)- Indica que uma ocorrência da
+entidade A pode se relacionar com várias ocorrências da entidade B e vice versa.
+Na prática, o relacionamento n:m é dividido em duas relações 1:n e uma nova entidade é
+criada para representar o relacionamento.
+
+                        Cardinalidade Mínima
+
+Cardinalidade (Mínima):
+Define a quantidade mínima de ocorrências de uma entidade que precisa estar associada a
+outra entidade (em caráter obrigatório).
+São consideradas como cardinalidades mínimas: 0 e 1
+São presentadas por: 0..1, 1..1, 0..n, 1..n, o..*, 1..*, etc
+
+
+Define a quantidade mínima de ocorrências de uma entidade que precisa estar associada a
+outra entidade (em caráter obrigatório).
+Exemplo:
+- Um vendedor ocupa um único escritório, porém é obrigatório que ele tenha um escritório.
+(Lê-se no mínimo Um, no máximo Um).
+- Um escritório pode ser ocupado por um único vendedor, porém pode ser que a sala esteja
+vazia, ainda sem vendedor. (Lê-se no mínimo Zero, no máximo Um).
+
+Formas de Representação
+
+Podemos encontrar uma variedade grande de representações gráficas para o Modelo
+Entidade Relacionamento: Os mais comuns são o Clássico e o Pé de Galinha
+
+- Clássico: Ambas as formas estão representando a mesma coisa utilizando estilos diferentes;
+
+- Pé de Galinha: Um vendedor poderá atender 1 ou vários clientes, que por sua vez será atendido 
+no mínimo por 1 e no máximo por 1 vendedor.
+
+Ferramenta indicada para modelagem:
+
+MySQL Workbench
+

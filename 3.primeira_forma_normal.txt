@@ -1,0 +1,102 @@
+                    Primeira Forma Normal (1FN)
+
+
+O processo de normalização aplica uma série de regras sobre as tabelas de um banco de
+dados para verificar se estas estão corretamente projetadas.
+
+Embora existam cinco formas normais (ou regras de normalização), na prática usamos um
+conjunto de três Formas Normais, ou seja, um banco de dados é considerado normalizado se
+nele foram aplicadas as regras destas três formas normais.
+
+Uma entidade estará na primeira forma normal (IFN) se todos os campos forem atômicos
+(simples) e não multivalorados (com múltiplos valores).
+
+Uma entidade estará na primeira forma normal (IFN) se todos os campos forem atômicos
+(simples) e não multivalorados (com múltiplos valores).
+
+Exemplo: Tabela Cliente
+
+Codigo_cliente      Nome        Telefone         Endereço
+C001                José        9563-6325       Rua Seis, 85
+                                9847-2501       Morumbi, 12563-965
+C002                Maria       3265-8596       Rua Onze, 64
+                                                Moema, 65985-9563
+C003                Janio       8545-8956       Praça Ramos, 
+                                                Liberdade, 68858-633
+
+Uma entidade estará na primeira forma normal (IFN) se todos os campos forem atômicos
+(simples) e não multivalorados (com múltiplos valores).
+
+Exemplo: Tabela Cliente          
+
+Note que temos dois problemas aqui que estão em desacordo com a 1FN:
+
+1 - O campo telefone é multivalorado;
+2 - O campo endereço é multivalorado;
+
+Como resolver?
+
+Note que o campo endereço possui sempre 3 partes: rua, bairro e cep. Podemos então dividir
+isso em 3 campos nesta mesma tabela.
+
+Exemplo: Tabela Cliente
+
+Codigo_cliente      Nome        Telefone         Endereço           Bairro      Cep
+C001                José        9563-6325       Rua Seis, 85       Morumbi     12563-965
+                                9847-2501     
+C002                Maria       3265-8596       Rua Onze, 64        Moema       65985-9563
+                                                
+C003                Janio       8545-8956       Praça Ramos        Liberdade    68858-633
+  
+Como resolver?
+
+Desta forma resolvemos um dos problemas. Mas e quanto ao telefone? Em algumas entradas
+temos somente um número e em outras temos dois números. Podemos fazer o mesmo? Ou seja,
+criar dois novos campos nesta mesma tabela: telefone1 e telefone2?
+
+Lembrando que: 
+
+
+Uma entidade estará na primeira forma normal (IFN) se todos os campos forem atômicos
+(simples) e não multivalorados (com múltiplos valores).
+
+Vamos então à correção: 
+
+Exemplo: Tabela Cliente e Tabela Telefones Cliente
+
+Codigo_cliente      Nome         Endereço           Bairro         Cep
+C001                José        Rua Seis, 85       Morumbi      12563-965
+C002                Maria       Rua Onze, 64        Moema       65985-9563
+C003                Janio       Praça Ramos        Liberdade    68858-633
+
+Codigo_cliente     Telefone
+C001              9563-6325 
+C001              9847-2501
+C002              3265-8596
+C003              8545-8956 
+
+Quais os problemas de uma tabela não normalizada com a 1FN?
+
+São vários.
+
+A primeira forma normal tenta resolver um dos maiores problemas de bancos de dados que é
+a repetição (redundância de dados) e a desorganização deles.
+Imagine um campo telefone que permita a entrada de mais de um valor (dois números de
+telefones) por exemplo. Como faríamos uma busca em um dos valores apenas?
+Mesma coisa em um campo endereço onde as partes não estivessem desmembradas, da
+seguinte forma:
+Rua das Oliveiras, 256, Parque Novo Mundo, São Paulo, SP.
+Como seria possível fazer uma busca de todos os clientes que morassem no Parque Novo
+Mundo? Ou na cidade de São Paulo? Ou no estado de SP?
+
+Toda tabela precisa obrigatoriamente ser normalizada com a 1FN?
+
+Não.
+
+A normalização é um processo corretivo que deve ser aplicado em casos específicos onde o
+problema for identificado.
+Tudo irá depender de como a análise dos dados foi feita.
+De início você terá muita dificuldade em aplicar as regras de normalização e somente o tempo
+e o acúmulo de experiência farão esse processo ser natural para você.
+Um analista experiente aplica a normalização de dados por padrão, pois ele olha para uma
+tabela e já 'sente' que tem algo errado ali e aplica a correção para tal.

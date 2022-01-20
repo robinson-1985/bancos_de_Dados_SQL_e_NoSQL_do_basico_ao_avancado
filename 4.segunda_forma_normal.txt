@@ -1,0 +1,50 @@
+Segunda Forma Normal - 2FN
+
+Uma entidade estará na 2FN se ela já se encontrar na 1FN e todos os atributos não chave forem
+totalmente dependentes da chave primária.
+
+Exemplo: Tabela Pedidos
+
+N_pedido   Codigo_produto    Produto                Quant    Valor_unit       Subtotal
+1005        1-934           Impressora laser         5        1.500,00         7.500,00
+1006        1-956           Impressora desjet        3        350,00           1.050,00
+1007        1-923           Impressora matricial     1        190,00           190,00
+1008        1-908           Impressora mobile        6        980,00           5.880,00
+
+Qual o problema aqui?
+
+Uma entidade estará na 2FN se ela já se encontrar na 1FN e todos os atributos não chave forem
+totalmente dependentes da chave primária.
+
+Qual é a chave primária da tabela? Os campos não chave são totalmente dependentes da chave?
+
+Código do produto, quantidade, valor unitário e subtotal (por enquanto) tudo bem, mas o nome
+do produto não é dependente da chave primária desta tabela mas sim do código do produto. Portanto, deveria estar em uma tabela separada.
+
+Exemplo: Tabela Pedidos e Tabela Produtos
+
+N_pedido   Codigo_produto    Produto                Quant    Valor_unit       Subtotal
+1005        1-934           Impressora laser         5        1.500,00         7.500,00
+1006        1-956           Impressora  desjet       3        350,00           1.050,00
+1007        1-923           Impressora  matricial    1        190,00           190,00
+1008        1-908           Impressora  mobile             6        980,00           5.880,00
+
+Codigo_produto     Produto
+1-934           Impressora laser  
+1-956           Impressora desjet
+1-923           Impressora matricial
+1-908           Impressora mobile
+
+Pronto! Nossa tabela está dentro da 2FN e pronta para ser validada com a 3FN. 
+
+Veja que a partir desse momento, o código do produto da tabela de Pedidos faz referência à
+chave primária da tabela de Produtos, portanto há um relacionamento entre as tabelas. 
+
+OBS: O valor unitário poderia/deveria estar na tabela de Produtos e não na tabela Pedidos, mas
+está aqui para ajudarmos a entender a 3FN que estudaremos na próxima aula.
+
+Finalizando: 
+
+Conforme vimos tanto com a 1FN quanto agora com a 2FN, quando aplicamos a normalização de
+dados é comum gerar novas tabelas a fim de satisfazer as formas normais que estão sendo
+aplicadas. 

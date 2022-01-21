@@ -1,0 +1,68 @@
+Terceira Forma Normal (3FN)
+
+Cada uma das formas normais tende a ir refinando a modelagem e deixando a estrutura de
+dados mais íntegra e exclusiva, evitando repetições desnecessárias e possíveis sobrecarga no
+gerenciador de banco de dados.
+Uma tabela estará na 3FN se ela estiver na 2FN e se nenhuma coluna não-chave depender de
+outra coluna não-chave.
+Ou seja, na 3FN temos simplesmente que eliminar os campos que podem ser obtidos pela
+equação de outros campos da mesma tabela.
+
+Exemplo: Tabela Pedidos
+
+N_pedido   Codigo_produto    Quant    Valor_unit       Subtotal
+1005        1-934             5        1.500,00         7.500,00
+1006        1-956             3        350,00           1.050,00
+1007        1-923             1        190,00           190,00
+1008        1-908             6        980,00           5.880,00
+
+Qual o problema aqui?
+
+Veja que se multiplicarmos a quantidade do produto pelo seu preço unitário teremos o subtotal.
+Portando o campo subtotal é desnecessário e deve ser removido.
+
+Exemplo: Tabela Pedidos
+
+N_pedido   Codigo_produto    Quant    Valor_unit
+1005        1-934             5        1.500,00  
+1006        1-956             3        350,00    
+1007        1-923             1        190,00  
+1008        1-908             6        980,00    
+
+Pronto! Temos uma tabela normalizada, dentro das 3 formas normais.
+
+OBS: Lembra que foi falado sobre o campo 'Valor unitário' durante a 2FN?
+O campo valor unitário pertence à tabela Produtos, e não deveria estar aqui.
+
+Exemplo: Tabela Pedidos
+
+N_pedido   Codigo_produto    Quant 
+1005        1-934             5     
+1006        1-956             3     
+1007        1-923             1   
+1008        1-908             6  
+
+Pronto! Temos uma tabela normalizada, dentro das 3 formas normais.
+
+Através do Código do produto nós temos acesso a todos os camps da tabela Produtos, 
+inclusive o nome do produto e ser valor unitário.
+
+Exemplo: Tabela Pedidos e Tabela Produtos
+
+N_pedido   Codigo_produto    Quant 
+1005        1-934             5     
+1006        1-956             3     
+1007        1-923             1   
+1008        1-908             6  
+
+Codigo_produto    Produto                  Valor_unit
+1-934           Impressora laser             1.500,00
+1-956           Impressora  desjet           350,00
+1-923           Impressora  matricial        190,00
+1-908           Impressora  mobile           980,00
+
+Terceira Forma Normal (3FN)
+
+Após aplicar as 3 Formas Normais temos o nosso Modelo de Entidade e Relacionamento (Modelo
+Conceitual) completo.
+Nós iremos aplicar passo a passo tudo isso nos exemplos que faremos nas próximas aulas.

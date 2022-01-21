@@ -1,0 +1,99 @@
+Outras Formas Normais
+
+Vimos que um modelo de dados é considerado normalizado se estiver sido aplicado as 3
+Formas Normais. Porém, dependendo da complexidade do projeto, apesar de raro, é possívem 
+que seja necessário aplicar a 4FN ou 5FN. Novamente, é muito raro necessitar realizar 
+essa aplicação da 4FN e 5FN, então, apesar de estarmos estudando elas aqui, não se importe 
+tanto no momento.
+
+Quarta Forma Normal (4FN):
+
+Uma entidade estará na 4FN se estiver na 3FN e na tabela não conter múltiplas entradas
+multivaloradas (valores repetidos em diferentes colunas), ou seja, a presença de uma ou 
+mais linhas em uma tabela implica na presença de uma ou mais outras linhas na mesma tabela.
+
+Exemplo 1: Considere uma tabela que armazene informações sobre planos de saúde e
+exames de um paciente: Paciente; Plano; Exame;
+
+Paciente                Plano                Exame
+Murilo                São Camilo           Endoscopia
+Murilo                Unimed               Endoscopia
+Murilo                São Camilo           Hemograma
+Murilo                Unimed               Hemograma
+
+Onde está o problema?
+Se formos realizar uma busca nesta tabela de todos os planos de saúde do paciente Murilo, 
+teremos que ele tem 4 planos de saúde. Mesma coisa com os exames...
+
+Exemplo 1: Considere uma tabela que armazene informações sobre planos de saúde e
+exames de um paciente: Paciente; Plano; Exame;
+
+Paciente                Plano                   Paciente               Exame
+Murilo                São Camilo                 Murilo               Hemograma
+Murilo                  Unimed                   Murilo               Hemograma
+
+Aplicando a 4FN nós separamos os dados em 2 grupos: Plano e Exame sendo que cada uma
+dessas entidades estaria ligada à tabela Paciente.
+
+Exemplo 2: Considere uma tabela que armazene informações sobre disciplinas e os
+professores das mesmas com sua titulação: Disciplina; Professor; Titulação;
+
+Professor                       Disciplina de                   Titulação
+Murilo           Arquitetura e Organização de Computadores     Especialista
+Murilo                  Inteligência Artificial                Especialista
+João                     Lógica de Programação                   Doutor
+João                   Sistemas Microcontrolados                 Doutor   
+
+Onde está o problema?
+
+Se formos realizar uma busca da titulação dos professores nesta tabela, teremos como
+resultado duplicidade.
+
+Exemplo 2: Considere uma tabela que armazene informações sobre disciplinas e os
+professores das mesmas com sua titulação: Disciplina; Professor; Titulação;
+
+Professor                       Disciplina 
+Murilo           Arquitetura e Organização de Computadores
+Murilo                  Inteligência Artificial
+João                     Lógica de Programação
+João                   Sistemas Microcontrolados
+
+Professor                  Titulação
+Murilo                   Especialista
+João                        Doutor
+
+Aplicando a 4FN, dividimos a tabela em dois grupos: Disciplina e Titulação, sendo que ambas
+estão ligadas à tabela Professor.
+
+Quinta Forma Normal (5FN):
+
+Uma entidade estará na 5FN se estiver na 4FN e quando um atributo está em outra tabela
+sem a necessidade de estar na tabela pesquisada e pode ser removido sem a perda de
+nenhuma informação.
+
+Exemplo:
+
+idProduto             Descrição      idFornecedor(FK)             Qtd
+       |                                     |
+          |                                   |   
+              |                                  |
+                 |   |                            idFornecedor         Nome
+                        |                         |
+idNota IdVendedor(FK) idProduto(FK)        idFornecedor
+
+Veja que temos 3 tabelas: Produtos, Fornecedor e Nota Fiscal. Estas tabelas estão
+relacionadas pelo Fornecedor e podemos retirar o campo idProduto da tabela Nota Fiscal 
+que ainda conseguiremos acessar esse dado através do idFornecedor.
+
+Exemplo: 
+
+idProduto             Descrição      idFornecedor(FK)             Qtd
+                                            |
+                                             |   
+                                                |
+                                                idFornecedor         Nome
+                                                 |
+idNota IdVendedor(FK)                    idFornecedor
+
+Pronto! Nossas tabelas estão na 5FN. Refinamos as tabelas, retirando um dos campos e
+conseguimos manter a informação.

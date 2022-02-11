@@ -1,0 +1,143 @@
+                    DQL - Data Query Language
+
+                    DQL
+                |    
+            |
+       SQL    
+
+No subgrupo DQL nós temos apenas 1 comando SQL: Select
+
+Este comando é utilizado para realizar consultas no banco de dados. Embora tenha apenas um 
+comando, a DQL é a parte da SQL mais utilizada. OcomandoSELECTpremite ao usuário espeficicar 
+uma consulta (query) como uma descrição do resultadoesperado.Este comando é composto de várias 
+cláusulas e opções, possibilitando eleborar consultasdasmais simples às mais complexas. 
+
+Entendendo o funcionamento do comando Select
+
+Tipo de produto 
+
+Código      Descrição
+1           Comprador
+2           Impressora
+
+Produto
+
+Código  Descrição                Preço           CódigoDoTipo
+10       Desktop                1.200,00               1
+20       Laptop                 1.800,00               1
+30       Impr. JatoTinta          300,00               2  
+40       Impr. Laser              500.00               2 
+
+SELECT * FROM tipos_produto;
+
+No exemplo acima, estamos selecionando todos os dados da tabela 'tipos_produto'. O asterisco que
+indica que queremos os dados de todos os campos da tabela.
+
+*************************************************************************************************
+
+SELECT * FROM tipos_produto;
+
+Se selecionarmos a Tabela: Tipo de produto, então terímaos como resultado as duas linhas da tabela 
+'tipos_produto' e uma mensagem de sucesso.
+
+*************************************************************************************************
+
+SELECT codigo, descricao FROM tipo_produto;
+
+No exemplo acima, estamos selecionando todos os dados da tabela 'tipos_produto' mas desta vez estamos
+especificando os campos que queremos os dados.
+
+**************************************************************************************************
+
+SELECT codigo, descricao FROM tipos_produto;
+
+Com isso nós teríamos o mesmo resultado anterior, já que a tabela 'tipos_produto' possui
+apenas os campos 'codigo' e 'descricao'.
+
+***************************************************************************************************
+
+SELECT * FROM produtos;
+
+No exemplo acima, estamos selecionando todos os dados da tabela 'produtos'.
+
+****************************************************************************************************
+
+SELECT * FROM produtos;
+
+Teremos como resultado as 4 linhas da tabela 'produtos' com os dados de todas as colunas juntamente
+com uma mensagem de sucesso.
+
+****************************************************************************************************
+
+SELECT codigo, descricao, codigo_tipo FROM produtos;
+
+No exemplo acima, estamos selecionando todos os dados de apenas 3 colunas da tabela'produtos'.
+Veja que não especificamos a coluna 'preco'. Desta forma, não teremos estes dados.
+
+***************************************************************************************************
+
+SELECT codigo, descricao, codigo_tipo FROM produtos;
+
+Teremos como resultado as 4 linhas da tabela 'produtos' com os dados das 3 colunas solicitadas
+juntamente com uma mensagem de sucesso.
+
+****************************************************************************************************
+
+SELECT cod, desc, pre, ctp FROM produtos;
+
+No exemplo acima, estamos selecionando dados de colunas inexistentes na tabela 'produtos'. Isso 
+além de não trazer comoresultado nenhum dado ainda nos apresentará erro pois as colunas solicitadas
+não existem na tabela.
+
+***************************************************************************************************
+
+Colocando um alias (apelido) em nome de tabela e campos:
+
+SELECT p.codigo AS cod, p.descricao AS desc, p.preco AS pre, p.codigo_produto AS ctp FROM produtos 
+AS p;
+
+No exemplo acima, estamos realizando uma busca especificando os campos que queremos da tabela
+'produtos ' eadicionandoum alias tanto para o nome da tabela quanto para o nome dos campos.
+
+
+Código:
+
+CREATE DATABASE secao04;
+
+USE secao04;
+
+CREATE TABLE tipos_produto(
+	codigo INT NOT NULL AUTO_INCREMENT,
+	descricao VARCHAR(30) NOT NULL,
+	PRIMARY KEY (codigo)
+);
+
+CREATE TABLE produtos(
+	codigo INT NOT NULL AUTO_INCREMENT, 
+	descricao VARCHAR(30) NOT NULL,
+	preco DECIMAL(8,2) NOT NULL,
+	codigo_tipo int NOT NULL,
+	PRIMARY KEY (codigo),
+	FOREIGN KEY (codigo_tipo) REFERENCES tipos_produto(codigo)
+);
+
+
+INSERT INTO tipos_produto (descricao) VALUES ('Computador');
+INSERT INTO tipos_produto (descricao) VALUES ('Impressora');
+
+INSERT INTO produtos (descricao, preco, codigo_tipo) VALUES ('Desktop', '1200', 1);
+INSERT INTO produtos (descricao, preco, codigo_tipo) VALUES ('Laptop', '1800', 1);
+INSERT INTO produtos (descricao, preco, codigo_tipo) VALUES ('Impr. Jato Tinta', '300', 2);
+INSERT INTO produtos (descricao, preco, codigo_tipo) VALUES ('Impr. Laser', '500', 2);
+
+-- Select
+SELECT * FROM tipos_produto;
+
+SELECT codigo, descricao FROM tipos_produto;
+
+SELECT * FROM produtos;
+
+SELECT codigo, descricao, codigo_tipo FROM produtos;
+
+-- Erro Select
+SELECT cod, desc, pre, ctp FROM produtos;

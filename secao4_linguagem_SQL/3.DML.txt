@@ -1,0 +1,163 @@
+                DML - Data Manipulation Language
+
+No subgrupo DML nós temos 3 comandos SQL: Insert, Update e Delete
+
+Este subgrupo da linguagem SQL é utilizado para realizar inclusões, alterações e exclusões 
+de dados presentes em registros do banco de dados.
+
+Tipo de produto 
+
+Código      Descrição
+1           Comprador
+2           Impressora
+
+Produto
+
+Código  Descrição                Preço           CódigoDoTipo
+10       Desktop                1.200,00               1
+20       Laptop                 1.800,00               1
+30       Impr. JatoTinta          300,00               2  
+40       Impr. Laser              500.00               2 
+
+
+INSERT - Usado para inserir um registro a uma tabela existente;
+UPDATE - Usado para alterar valores de dados em um ou mais registros de uma tabela;
+DELETE - Usado para remover registros de uma tabela;
+
+Entendendo o funcionamento do comando Insert - Exemplo 1
+
+INSERT INTO tipos_produto (descricao) VALUES ('Notebook');
+
+Tipo de produto 
+
+Código      Descrição
+1           Comprador
+2           Impressora
+3           Notebook
+
+Produto
+
+Código  Descrição                Preço           CódigoDoTipo
+10       Desktop                1.200,00               1
+20       Laptop                 1.800,00               1
+30       Impr. JatoTinta          300,00               2  
+40       Impr. Laser              500.00               2 
+
+No exemplo acima, estamos inserindo o valor 'Notebook' na tabela 'tipos_produto'. O campo 
+'codigo' do tipo de produto é chave primária e auto incremento, então será inserido automaticamente.
+Com isso um novo registro será inserido na tabela e uma mensagem de sucesso será retornada.
+
+************************************************************************************************
+
+Entendendo o funcionamento do comando Insert - Exemplo 2
+
+Tipo de produto 
+
+Código      Descrição
+1           Comprador
+2           Impressora
+3           Notebook
+
+Produto
+
+Código  Descrição                Preço           CódigoDoTipo
+10       Desktop                1.200,00               1
+20       Laptop                 1.800,00               1
+30       Impr. JatoTinta          300,00               2  
+40       Impr. Laser              500.00               2 
+41       Notebook               1.200,00               1    
+
+INSERT INTO produtos (descricao, preco, codigo_tipo_produto) VALUES ('Notebook', 1200, 1);
+
+No exemplo acima, estamos inserindo os valores 'Notebook, 1200 e 1' na tabela 'produtos'. O campo 
+'codigo' do produto é chave primária e auto incremento, então será inserido automaticamente.
+Com isso um novo registro será inserido na tabela e uma mensagem de sucesso será retornada.
+
+                                Update
+
+Entendendo o funcionamento do comando Update - Exemplo 1
+
+UPDATE tipos_produto set descricao = 'Nobreak' WHERE codigo = 3;
+
+Tipo de produto 
+
+Código      Descrição
+1           Comprador
+2           Impressora
+3           Nobreak
+
+Produto
+
+Código  Descrição                Preço           CódigoDoTipo
+10       Desktop                1.200,00               1
+20       Laptop                 1.800,00               1
+30       Impr. JatoTinta          300,00               2  
+40       Impr. Laser              500.00               2 
+
+No exemplo acima, estamos atualizando um registro na tabela 'tipos_produto', e note que estamos 
+utilizando o filtro com a cláusula WHERE especificando qual registro queremos atualizar.
+
+UPDATE tipos_produto set descricao = 'Nobreak' WHERE codigo = 3;
+
+Com isso o registro com codigo = 3 será atualizado com o novo valor para o campo'descricao'.
+
+************************************************************************************************
+
+Entendendo o funcionamento do comando Update - Exemplo 2
+
+UPDATE produtos set descricao = 'Notebook', preco = 2.800 WHERE codigo =20;
+
+No exemplo acima, estamos atualizando um registro na tabela 'produtos', e note que estamos 
+utilizando o filtro com a cláusula WHERE especificando qual registro queremos atualizar. Além
+disso, estamos atualizando dois campos da tabela.
+
+Tipo de produto 
+
+Código      Descrição
+1           Comprador
+2           Impressora
+3           Notebook
+
+Produto
+
+Código  Descrição                Preço           CódigoDoTipo
+10       Desktop                1.200,00               1
+20       Notebook               2.800,00               1
+30       Impr. JatoTinta          300,00               2  
+40       Impr. Laser              500.00               2 
+
+UPDATE produtos set descricao = 'Notebook', preco = 2.800 WHERE codigo =20;
+
+Desta forma o registro será atualizado e o novo valor será mantido na tabela.
+
+************************************************************************************************
+
+Atenção: cuidado com o comando UPDATE
+
+Entendendo o funcionamento do comando Update - Exemplo 3
+
+UPDATE produtos set descricao = 'Notebook', preco = 2.800;
+
+Veja que não foi utilizado o filtro com WHERE no comando UPDATE acima...isso é muitograve!
+
+Tipo de produto 
+
+Código      Descrição
+1           Comprador
+2           Impressora
+3           Notebook
+
+Produto
+
+Código  Descrição                Preço           CódigoDoTipo
+10       Desktop                1.200,00               1
+20       Notebook               2.800,00               1
+30       Impr. JatoTinta          300,00               2  
+40       Impr. Laser              500.00               2 
+
+
+
+
+
+
+

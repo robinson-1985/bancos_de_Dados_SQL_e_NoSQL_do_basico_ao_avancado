@@ -138,7 +138,7 @@ Entendendo o funcionamento do comando Update - Exemplo 3
 
 UPDATE produtos set descricao = 'Notebook', preco = 2.800;
 
-Veja que não foi utilizado o filtro com WHERE no comando UPDATE acima...isso é muitograve!
+Veja que não foi utilizado o filtro com WHERE no comando UPDATE acima...isso é muito grave!
 
 Tipo de produto 
 
@@ -156,8 +156,60 @@ Código  Descrição                Preço           CódigoDoTipo
 40       Impr. Laser              500.00               2 
 
 
+UPDATE produtos set descricao = 'Notebook', preco = 2.800
 
+Desta forma todos os registros foram afetados... e para resolver isso, só se você tiver backup
+do banco de dados.
 
+*****************************************************************************
 
+                    Entendendo o funcionamento do comando Delete
 
+Entendendo o funcionamento do comando Delete - Exemplo 1
 
+Tipo de produto 
+
+Código      Descrição
+1           Comprador
+2           Impressora
+3           Notebook
+
+Produto
+
+Código  Descrição                Preço           CódigoDoTipo
+10       Desktop                1.200,00               1
+20       Notebook               2.800,00               1
+30       Impr. JatoTinta          300,00               2  
+40       Impr. Laser              500.00               2 
+
+DELETE FROM tipos_produto WHERE codigo = 3;
+
+No exemplo acima estamos excluindo da tabela 'tipos_produto' o registro que tenha o codigo = 3
+
+Tipo de produto 
+
+Código      Descrição
+1           Comprador
+2           Impressora
+
+Produto
+
+Código  Descrição                Preço           CódigoDoTipo
+10       Desktop                1.200,00               1
+20       Notebook               2.800,00               1
+30       Impr. JatoTinta          300,00               2  
+40       Impr. Laser              500.00               2 
+
+DELETE FROM tipos_produto WHERE codigo = 3;
+
+O registro será então removido da tabela, sem changes de recuperação.
+
+DELETE FROM tipos_produto;
+
+Veja que estamos utilizando o comando 'Delete' sem a cláusula WHERE onde iríamos especificar o
+registro a ser excluído...
+
+DELETE FROM tipos_produto;
+
+Desta forma, todos os registros da tabela serão excluídos...e só um backup poderia salvar seu
+emprego...

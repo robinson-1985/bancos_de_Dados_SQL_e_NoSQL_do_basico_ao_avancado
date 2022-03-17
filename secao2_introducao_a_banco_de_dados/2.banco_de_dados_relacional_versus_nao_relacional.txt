@@ -34,5 +34,6 @@ Algumas implementações oferecem:
 
 - O particionamento e a replicação de dados; 
 - Sistemas baseados em armazenamento de chave/valor;
-- Sistemas orientados a documentos; - Sistemas orientados a coluna;
+- Sistemas orientados a documentos; 
+- Sistemas orientados a coluna;
 - Sistemas baseados em grafos.

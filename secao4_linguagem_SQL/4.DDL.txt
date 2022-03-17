@@ -1,0 +1,40 @@
+                DDL - Data Definition Language
+
+SQL se divide em vários subgrupos como o DQL, DML e o DDL.
+
+No subgrupo DQL temos o SELECT;
+No subgrupo DML temos o INSERT, UPDATE e o DELETE;
+
+No subgrupo DDL nós temos 3 comandos SQL: Create, Alter e Drop
+
+Este subgrupo da linguagem SQL é utilizado para criar, alterar e excluir bancos dedados, 
+tabelas,e elementos associados como índice e visão.
+
+CREATE - Usado para criar um banco de dados, tabela e outros objetos em um banco de dados;
+ALTER - Usado para alterar a estrutura de tabelas ou outro objeto em um banco de dados;
+DROP - Usado para apagar bancos de dados, tabelas e outros objetos;
+
+**************************************************************************************
+
+                    Entendendo o funcionamento do comando Create
+
+Entendendo o funcionamento do comando Create - Exemplo 1
+
+CREATE DATABASE financeiro;
+No exemplo acima, estamos criando um banco de dados chamado 'financeiro';
+
+**************************************************************************************
+
+Entendendo o funcionamento do comando Create - Exemplo 2
+
+CREATE TABLE tipos_produto (codigo INT PRIMARY KEY, descricao VARCHAR(50));
+No exemplo acima, estamos criando uma tabela chamada 'tipos_produto' contendo os campos codigo,
+do tipo int e como chave primária, e descricao do tipo varchar com até 50 caracteres.
+
+***************************************************************************************
+
+Entendendo o funcionamento do comando Create - Exemplo 2
+
+CREATE TABLE tipos_produto (codigo INT PRIMARY KEY, descricao VARCHAR(50));
+Com isso uma tabela seria criada no banco de dados 'financeiro' criado anteriormente e 
+uma tabela ficaria disponível para que possamos inserir e manipular os dados.

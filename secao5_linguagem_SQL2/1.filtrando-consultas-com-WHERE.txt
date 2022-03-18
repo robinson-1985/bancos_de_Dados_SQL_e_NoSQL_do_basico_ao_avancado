@@ -1,0 +1,113 @@
+Filtrando Consultas com WHERE
+
+Entendendo o funcionamento da cláusula WHERE - Exemplo 1
+
+Tipo de produto 
+
+Código      Descrição
+1           Computador
+2           Impressora
+
+Produto
+
+Código  Descrição                Preço           CódigoDoTipo
+10       Desktop                1.200,00               1
+20       Notebook               2.800,00               1
+30       Impr. JatoTinta          300,00               2  
+40       Impr. Laser              500.00               2 
+
+SELECT * FROM tipos_produto WHERE codigo = 1;
+
+No exemplo acima, estamos selecionando todos os dados da tabela 'tipos_produto' onde o 
+código do tipo de produto seja igual a 1.
+
+**************************************************************************************
+
+Entendendo o funcionamento da cláusula WHERE - Exemplo 2
+
+Tipo de produto 
+
+Código      Descrição
+1           Computador
+2           Impressora
+
+Produto
+
+Código  Descrição                Preço           CódigoDoTipo
+10       Desktop                1.200,00               1
+20       Notebook               2.800,00               1
+30       Impr. JatoTinta          300,00               2  
+40       Impr. Laser              500.00               2 
+
+SELECT * FROM tipos_produto WHERE codigo = 2;
+
+No exemplo acima, estamos selecionando todos os dados da tabela 'tipos_produto' onde o código
+do tipo de produto seja igual a 2.
+
+**************************************************************************************
+
+Entendendo o funcionamento da cláusula WHERE - Exemplo 3
+
+Tipo de produto 
+
+Código      Descrição
+1           Computador
+2           Impressora
+
+Produto
+
+Código  Descrição                Preço           CódigoDoTipo
+10       Desktop                1.200,00               1
+20       Notebook               2.800,00               1
+30       Impr. JatoTinta          300,00               2  
+40       Impr. Laser              500.00               2 
+
+
+SELECT * FROM produtos WHERE descricao = 'Laptop';
+
+No exemplo acima, estamos selecionando todos os dados da tabela 'produtos' onde a descrição
+do produto seja igual a 'Laptop'.
+
+SELECT * FROM produtos WHERE descricao = 'Laptop';
+
+Como resultado teremos 1 linha que corresponde ao registro com descrição igual 'Laptop'
+
+************************************************************************************************
+
+CREATE DATABASE secao05;
+
+USE secao05;
+
+CREATE TABLE tipos_produto(
+	codigo INT NOT NULL AUTO_INCREMENT,
+	descricao VARCHAR(30) NOT NULL,
+	PRIMARY KEY (codigo)
+);
+
+CREATE TABLE produtos(
+	codigo INT NOT NULL AUTO_INCREMENT, 
+	descricao VARCHAR(30) NOT NULL,
+	preco DECIMAL(8,2) NOT NULL,
+	codigo_tipo int NOT NULL,
+	PRIMARY KEY (codigo),
+	FOREIGN KEY (codigo_tipo) REFERENCES tipos_produto(codigo)
+);
+
+
+INSERT INTO tipos_produto (descricao) VALUES ('Computador');
+INSERT INTO tipos_produto (descricao) VALUES ('Impressora');
+
+INSERT INTO produtos (descricao, preco, codigo_tipo) VALUES ('Desktop', '1200', 1);
+INSERT INTO produtos (descricao, preco, codigo_tipo) VALUES ('Laptop', '1800', 1);
+INSERT INTO produtos (descricao, preco, codigo_tipo) VALUES ('Impr. Jato Tinta', '300', 2);
+INSERT INTO produtos (descricao, preco, codigo_tipo) VALUES ('Impr. Laser', '500', 2);
+
+-- Select
+SELECT * FROM tipos_produto WHERE codigo = 1;
+
+SELECT codigo, descricao FROM tipos_produto WHERE codigo = 2;
+
+SELECT * FROM produtos WHERE descricao = 'Laptop';
+
+SELECT codigo, descricao, codigo_tipo FROM produtos WHERE preco <= 500;
+

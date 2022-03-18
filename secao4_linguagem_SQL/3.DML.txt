@@ -189,7 +189,7 @@ No exemplo acima estamos excluindo da tabela 'tipos_produto' o registro que tenh
 Tipo de produto 
 
 Código      Descrição
-1           Comprador
+1           Computador
 2           Impressora
 
 Produto
